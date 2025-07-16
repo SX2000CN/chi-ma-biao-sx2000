@@ -1,0 +1,57 @@
+<Window x:Class="SizeChartGenerator.Dialogs.AddCategoryDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="添加自定义类别" 
+        Height="250" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    
+    <Border Background="White" CornerRadius="10" BorderBrush="#E0E0E0" BorderThickness="1">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- 标题 -->
+            <TextBlock Grid.Row="0" Text="添加自定义类别" FontSize="18" FontWeight="SemiBold" 
+                       Margin="0,0,0,20"/>
+            
+            <!-- 类别名称 -->
+            <StackPanel Grid.Row="1" Margin="0,0,0,20">
+                <TextBlock Text="类别名称：" Margin="0,0,0,8"/>
+                <TextBox x:Name="CategoryNameTextBox" 
+                         Style="{StaticResource FinderTextBoxStyle}"/>
+            </StackPanel>
+            
+            <!-- 递进值选择 -->
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="递进值：" Margin="0,0,0,8"/>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton x:Name="Increment1Radio" Content="递进 +1" IsChecked="True" 
+                                GroupName="Increment" Margin="0,0,20,0"
+                                Style="{StaticResource FinderRadioButtonStyle}"/>
+                    <RadioButton x:Name="Increment4Radio" Content="递进 +4" 
+                                GroupName="Increment"
+                                Style="{StaticResource FinderRadioButtonStyle}"/>
+                </StackPanel>
+            </StackPanel>
+            
+            <!-- 按钮 -->
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="取消" Width="80" Margin="0,0,10,0"
+                        Style="{StaticResource FinderButtonStyle}"
+                        Click="CancelButton_Click"/>
+                <Button Content="确定" Width="80"
+                        Style="{StaticResource FinderPrimaryButtonStyle}"
+                        Click="OkButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
